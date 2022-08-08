@@ -1,0 +1,18 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: Fuel Inventory Microservice
+  data:
+    mongodb:
+      database: test_db
+      host: localhost
+      port: 27017
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: inventory-service-group
+      auto-offset-reset: earliest
+    producer:
+      bootstrap-servers: localhost:9092

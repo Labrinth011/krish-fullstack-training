@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: Fuel Order Microservice
+  data:
+    mongodb:
+      database: test_db
+      host: localhost
+      port: 27017
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: order-service-group
+      auto-offset-reset: earliest
+    producer:
+      bootstrap-servers: localhost:9092
+

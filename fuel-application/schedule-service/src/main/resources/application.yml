@@ -1,0 +1,14 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: Fuel Schedule Microservice
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: order-service-group
+      auto-offset-reset: earliest
+    producer:
+      bootstrap-servers: localhost:9092
+
