@@ -1,0 +1,50 @@
+<div class="list row">
+    <h4>Check Order Status</h4>
+    <h6>(Note: Use the Order Reference ID Given at Submission)</h6>
+    <p></p>
+    <div class="col-md-4">
+        <div class="input-group mb-3">
+        <input
+            type="text"
+            class="form-control"
+            placeholder="Search by Order Reference ID"
+            name="orderRefID"
+            id="orderRefID"
+            required
+            [(ngModel)]="orderRefID"
+        />
+        <div class="input-group-append">
+            <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="getOrderByRefID()"
+            >
+            Search
+            </button>
+        </div>
+        </div>
+    </div>
+</div>
+<p></p>
+<div *ngIf="orderDetailsReceived">
+<div>
+    <div class="col-md-6">
+        <div>
+            <div>
+            <h5>Order Refrence ID: {{order.orderRefId}}</h5>
+            <div>
+                <label><strong>Order Status:</strong></label> {{ order.status }}
+            </div>
+            <div>
+                <label><strong>Scheduled Date:</strong></label> {{ order.scheduledDate }}
+            </div>
+            <p></p>
+            <button  class="btn btn-warning" (click)="confirmOrderReceived()">
+                Confirm Order Received
+            </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

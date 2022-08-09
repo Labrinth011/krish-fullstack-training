@@ -1,0 +1,64 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="id"><strong>Gas Station ID</strong></label>
+          <input
+            type="text"
+            class="form-control"
+            id="stationID"
+            required
+            [(ngModel)]="order.stationID"
+            name="stationID"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name"><strong>Station Name</strong></label>
+          <input
+            class="form-control"
+            id="stationName"
+            required
+            [(ngModel)]="order.stationName"
+            name="stationName"
+          />
+        </div>
+        <div class="form-group">
+            <label for="location"><strong>Location</strong></label>
+            <input
+              class="form-control"
+              id="location"
+              required
+              [(ngModel)]="order.location"
+              name="location"
+            />
+          </div>
+          <div class="form-group">
+            <label for="capacity"><strong>Required Quantity</strong></label>
+            <input
+              class="form-control"
+              id="requiredCapacity"
+              required
+              [(ngModel)]="order.requiredCapacity"
+              name="requiredCapacity"
+            />
+          </div>
+          <div class="form-group">
+            <label for="fuelType"><strong>Fuel Type</strong></label>
+            <input
+              class="form-control"
+              id="fuelType"
+              required
+              [(ngModel)]="order.fuelType"
+              name="fuelType"
+            />
+          </div>
+          <p></p>
+        <button (click)="submitOrder()" class="btn btn-success">Submit</button>
+      </div>
+      <div *ngIf="submitted">
+        <h4>Order was submitted to CPC!</h4>
+        <h4>Note Your Reference Number: {{ response.orderRefId }}</h4>
+        <button class="btn btn-success" (click)="newOrder()">Add</button>
+      </div>
+    </div>
+  </div>

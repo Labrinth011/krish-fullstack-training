@@ -1,0 +1,38 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Order Ref ID</th>
+      <th scope="col">Station ID</th>
+      <th scope="col">Station Name</th>
+      <th scope="col">Location</th>
+      <th scope="col">Fuel Type</th>
+      <th scope="col">Required Quantity</th>
+      <th scope="col">Order Status</th>
+      <th scope="col">Scheduled Date</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orderList; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ order.orderRefId }}</td>
+      <td>{{ order.stationID }}</td>
+      <td>{{ order.stationName}}</td>
+      <td>{{ order.location}}</td>
+      <td>{{ order.fuelType}}</td>
+      <td>{{ order.requiredCapacity}}</td>
+      <td>{{ order.status}}</td>
+      <td>{{ order.scheduledDate}}</td>
+      <td>
+        <button
+                type="button"
+                class="btn btn-link btn-rounded btn-sm fw-bold"
+                mdbRipple rippleColor="dark"
+                >
+          Dispatch
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
