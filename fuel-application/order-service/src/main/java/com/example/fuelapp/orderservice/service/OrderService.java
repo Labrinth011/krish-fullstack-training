@@ -14,4 +14,5 @@ public interface OrderService {
 
     public void updateStatusToAllocated(Order order);
     public void updateStatusToScheduled(Order order);
+    public void updateStatusToDispatched(Order order);
 }

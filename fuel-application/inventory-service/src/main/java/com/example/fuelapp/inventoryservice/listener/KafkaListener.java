@@ -16,7 +16,16 @@ public class KafkaListener {
             groupId = "inventory-service-group",
             containerFactory = "orderReceivedListenerFactory"
     )
-    void listener(Order order){
+    void ReceivedListener(Order order) {
         inventoryService.reserveFromStorage(order);
+    }
+
+    @org.springframework.kafka.annotation.KafkaListener(
+            topics = "dispatched-order",
+            groupId = "inventory-service-group",
+            containerFactory = "orderReceivedListenerFactory"
+    )
+    void DispatchedListener(Order order) {
+        inventoryService.dispatchFromStorage(order);
     }
 }

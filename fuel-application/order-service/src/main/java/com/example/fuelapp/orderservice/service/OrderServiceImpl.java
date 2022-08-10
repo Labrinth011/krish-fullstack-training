@@ -80,4 +80,14 @@ public class OrderServiceImpl implements OrderService{
             orderRepository.save(_order);
         }
     }
+
+    @Override
+    public void updateStatusToDispatched(Order order) {
+        Optional<Order> orderData = orderRepository.findById(order.getOrderRefId());
+        if(orderData.isPresent()){
+            Order _order = orderData.get();
+            _order.setStatus("Dispatched");
+            orderRepository.save(_order);
+        }
+    }
 }

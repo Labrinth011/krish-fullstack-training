@@ -13,6 +13,7 @@ import java.util.Optional;
 public class InventoryServiceImpl implements InventoryService{
 
     private static final String FUEL_ALLOCATED_TOPIC = "fuel_allocated";
+    private static int counter = 0;
 
     @Autowired
     private KafkaTemplate<String, Order> kafkaTemplate;
@@ -35,6 +36,21 @@ public class InventoryServiceImpl implements InventoryService{
 
             order.setStatus("Allocated");
             kafkaTemplate.send(FUEL_ALLOCATED_TOPIC, order);
+        }
+    }
+
+    @Override
+    public void dispatchFromStorage(Order order) {
+        Optional<Storage> storageData = storageRepository.findById(order.getFuelType());
+        if(storageData.isPresent()){
+            Storage _storage = storageData.get();
+
+            int newAvailableQuantity = ((_storage.getAvailableQuantity()) - (order.getRequiredCapacity()));
+            int newReservedQuantity = ((_storage.getReservedQuantity()) - (order.getRequiredCapacity()));
+
+            _storage.setAvailableQuantity(newAvailableQuantity);
+            _storage.setReservedQuantity(newReservedQuantity);
+            storageRepository.save(_storage);
         }
     }
 }
