@@ -8,6 +8,7 @@ const baseUrlSaveOrder = 'http://localhost:8081/api/saveorder'
 const baseUrlGetAllOrders = 'http://localhost:8081/api/getallorders'
 const baseUrlGetOrder = 'http://localhost:8081/api/getorder'
 const baseUrlUpdateOrderRecieved = 'http://localhost:8081/api/orderreceived'
+const baseUrlDispatchOrder = 'http://localhost:3000/api/dispatchOrder'
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,8 @@ export class OrderServiceService {
   }
   updateStatusReceived(orderRefId: any): Observable<any> {
     return this.http.put(`${baseUrlUpdateOrderRecieved}/${orderRefId}`, null);
+  }
+  dispatchOrder(data : any): Observable<any> {
+    return this.http.put(baseUrlDispatchOrder, data);
   }
 }

@@ -25,13 +25,15 @@ export class OrderListCpcComponent implements OnInit {
         error: (e) => console.error(e)
       });
   }
-  refreshList(): void {
-    this.retrieveOrders();
-    this.currentOrder = {};
-    this.currentIndex = -1;
-  }
-  setActiveTutorial(order: Order, index: number): void {
-    this.currentOrder = order;
-    this.currentIndex = index;
+  dispatchOrder(order : Order){
+    console.log(order.orderRefId);
+    this.orderService.dispatchOrder(order)
+    .subscribe({
+      next: (res) => {
+        console.log(res);
+        window.location.reload();
+      },
+      error: (e) => console.error(e)
+    });
   }
 }

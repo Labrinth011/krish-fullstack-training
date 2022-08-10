@@ -34,23 +34,30 @@
           </div>
           <div class="form-group">
             <label for="capacity"><strong>Required Quantity</strong></label>
-            <input
-              class="form-control"
-              id="requiredCapacity"
-              required
-              [(ngModel)]="order.requiredCapacity"
+            <select class="form-control form-select" 
+              id="requiredCapacity" 
               name="requiredCapacity"
-            />
+              aria-label="Default select example"
+              required
+              [(ngModel)]="order.requiredCapacity">
+              <option value="3300">3300</option>
+              <option value="6600">6600</option>
+              <option value="13200">13200</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="fuelType"><strong>Fuel Type</strong></label>
-            <input
-              class="form-control"
-              id="fuelType"
-              required
-              [(ngModel)]="order.fuelType"
-              name="fuelType"
-            />
+            <select class="form-control form-select" 
+                    id="fuelType" 
+                    name="fuelType"
+                    aria-label="Default select example"
+                    required
+                    [(ngModel)]="order.fuelType">
+              <option value="P92">Petrol 92</option>
+              <option value="P95">Petrol 95</option>
+              <option value="AD">Lanka Auto Diesel</option>
+              <option value="SD">Lanka Super Diesel</option>
+            </select>
           </div>
           <p></p>
         <button (click)="submitOrder()" class="btn btn-success">Submit</button>

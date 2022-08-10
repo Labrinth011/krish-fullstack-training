@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<table class="table table-striped table-hover">
     <thead>
     <tr>
       <th scope="col">#</th>
@@ -29,6 +29,7 @@
                 type="button"
                 class="btn btn-link btn-rounded btn-sm fw-bold"
                 mdbRipple rippleColor="dark"
+                (click)="dispatchOrder(order)"
                 >
           Dispatch
         </button>
